@@ -53,10 +53,6 @@ public class ShipController : MonoBehaviour {
             GameObject bullet = Instantiate(bulletPrefab, spawnPosition, Quaternion.identity) as GameObject;
             bullets.Add(bullet);
             StartCoroutine(DestroyBullet());
-            //yield return new WaitForSeconds(3.0f);
-            //Destroy(bullet);
-            //Debug.Log("Destroyed");
-            //elapsedTime = 0f;
         }  
     }
     private IEnumerator DestroyBullet()
@@ -64,16 +60,6 @@ public class ShipController : MonoBehaviour {
         yield return new WaitForSeconds(3.0f);
         Destroy(bullets.Last());
     }
-    //private IEnumerator TextTest()
-    //{
-    //    while(true)
-    //    {
-    //        print(i);
-    //        i++;
-    //        yield return new WaitForSeconds(1);
-    //    }
-        
-    //}
     private void OnTriggerEnter2D(Collider2D collision)
     {
         GameManager.Instance.EndGame();
